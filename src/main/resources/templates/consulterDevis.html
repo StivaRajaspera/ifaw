@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Saisir devis</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="css/bootstable.min.js"></script>
+    <link href="css/consulter.css" rel="stylesheet" />
+</head>
+ <header>
+	<div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img src="../img/logo.png" alt="logo"/></a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                    	<li class=""><a th:href="@{/serviceTechnique}">Consulter les demandes de devis</a></li> 
+                        <li class=""><a th:href="@{/saisirDevis}">Saisir un devis</a></li> 
+                        <li class="active"><a th:href="@{/consulterDevis}">Consulter les devis</a></li> 
+                    	<li class="">             	
+	                    	<a th:href="@{/logout}">Se déconnecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</header> 
+
+<body>
+
+	<div id="overlay">
+        <div id="edit-box">
+
+				<h1>Détails</h1>
+
+				<div class=""> 
+					<input class="btn-export" type="submit" onclick="exportPDF()" value="Exporter en pdf">
+					<input class="btn-send" type="submit" onclick="sendClient()" value="Envoyer au client">
+					<input class="btn-remove" type="submit" onclick="removeDevis()" value="Supprimer">
+				</div>
+
+                <h2>Les prestations</h2>
+
+				<table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Libéllé</th>
+                        <th>Qte</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-prestation">
+
+                    </tbody>
+                </table>
+
+				
+
+				<div class="box-btn"> 
+					<input class="btn-confirm btn-next" type="submit" onclick="confirmDevis()" value="Confirmer">
+					<input class="btn-back" type="submit" onclick="closeOverlay()" value="Retour">
+				</div>
+
+		</div>
+
+		<div id="confirm-box">
+
+			<h1>Création intervention</h1>
+
+			
+			<form class="form-edit" action="#" method="POST" onsubmit="return false;">
+                    
+                <div class="input-box">
+                    <div class="label-input">
+                        <label for="date-debut">Date début</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="date" id="date-debut">
+                    </div>
+				</div>
+				<div class="input-box">
+                    <div class="label-input">
+                        <label for="date-debut">Date fin</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="date" id="date-fin">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="label-input">
+                        <label for="employe-list">Choisir employé</label>
+                    </div>
+                    <div class="input-field">
+                        <select class="employees" id="employe-list">
+                            <option value="aucun">- Choisir - </option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="input-box">
+                    <div class="label-input">
+                        <label for="employee">Ouvrier</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="employee">
+                    </div>
+                </div> -->
+
+                <!-- <div class="input-submit-edit"> 
+                    <input type="submit" onclick="closeOverlay()" value="Annuler">
+                    <input type="submit" onclick="updateProduct()" value="Modifier produit">
+                </div> -->
+            </form>
+
+			
+
+			<div class="box-btn"> 
+				<input class="btn-confirm" type="submit" onclick="createIntervention()" value="Créer intervention">
+				<input class="btn-back" type="submit" onclick="closeOverlay()" value="Retour">
+			</div>
+
+		</div>
+	</div>
+	
+	
+
+	<div class="container">
+	  <h1> La liste des devis</h1>          
+	  <table class="table table-hover">
+	    <thead>
+	      <tr>
+	        <th>numero</th>
+	        <th>description</th>
+	        <th>prix</th>
+			<th>Total HT</th>
+	      </tr>
+	    </thead>
+	    <tbody class="table-body">
+
+	    </tbody>
+	  </table>
+</div>
+
+
+
+<script src="../js/consulterDevis.js"></script>
+
+
+</body>
+</html>

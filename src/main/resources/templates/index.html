@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+
+<title>AGORA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+<link href="../css/style.css" rel="stylesheet" />
+
+
+<!-- css -->
+
+
+<link href="../css/flexslider.css" rel="stylesheet" />
+
+
+</head>
+<body>
+	<div id="wrapper" class="home-page">
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"/></a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Accueil</a></li> 
+							 <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">À propos<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Entreprise</a></li>
+                            <li><a href="#">Notre équipe</a></li>
+                            <li><a href="#">Actualités</a></li> 
+                        </ul>
+                    </li>
+						<li><a href="services.html">Services</a></li> 
+
+                        <li><a th:href="@{/demanderDevis}">Demander un devis</a></li>
+     
+                        	<li class="login" style="padding: 0px;">
+                        	
+                        		<form th:action="@{/login}" method="POST">
+									<table>
+										<tr>
+											<td><input class="login" type="text" name="username" placeholder="Nom d'utilisateur">
+											<input class="login" type="password" name="password" placeholder="Mot de passe"></td>
+											<td><button id="btnlogin" type="submit">
+    												<img src="img/login.png" alt="submit" />
+												</button>
+										</tr>
+										<tr>
+											<td><span class="login">Rejoignez-nous via le </span>
+											<a th:href="@{/inscription}" >Formulaire</a></td>
+										</tr>									
+									</table>
+								</form>
+                        	<div th:if="${param.error}"> Username et mot de passe incorrectes.</div>
+							<div th:if="${param.logout}"> Vous avez été déconnecté.</div>
+													
+                            </li>              
+                </div>
+            </div>
+        </div>
+	</header>
+	<!-- end header -->
+	
+		<section id="banner">
+
+	<!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="/img/slides/1.jpg" alt="flexslider" /> 
+                <div class="flex-caption">
+                    <h3>AGORA SERVICES</h3> 
+					<p>Notre équipe d'experts en maintenance d'urgence est disponible 24 heures sur 24, 7 jours sur 7, 365 jours par an pour répondre à vos problèmes. rapidement et avec compétence!</p> 
+					<table><tr>
+						<td><a class="btn-slide" href="#">Demander un devis</a></td>
+						<td><a class="btn-slide" href="#">Rejoignez nous</a></td>
+					</tr></table>
+                </div> 
+              </li>
+              <li>
+                <img src="img/slides/2.jpg" alt="flexslider" /> 
+                <div class="flex-caption">
+                    <h3>RENOPART recrute!</h3> 
+					<p>Idéal pour les ouvriers qui recherchent un job à la carte. Chaque année RENOPART propose plus de 6000 missions dans toute la France. Une fois inscrit et votre dossier constitué , vous n'avez plus qu'à remplir vos disponibilités.</p>
+					<table><tr>
+						<td><a class="btn-slide" href="#">Demander un devis</a></td>
+						<td><a class="btn-slide" href="#">Rejoignez nous</a></td>
+					</tr></table>   
+                </div> 
+              </li>
+            </ul>
+        </div>
+		
+	<!-- end slider -->
+
+	</section>
+
+	<section class="jumbobox">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div><h1>Services</h1></div>
+					
+				</div>
+			</div>
+		</div>
+		</section>
+
+		<section id="content">
+	
+	
+			<div style="" class="container">
+					<div class="row">
+				<div class="skill-home"> <div class="skill-home-solid clearfix"> 
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/cle.png"></span> <div class="box-area">
+				<h3>PLOMBERIE</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/marteau.png"></span> <div class="box-area">
+				<h3>SOLS</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/tournvis.png"></span> <div class="box-area">
+				<h3>SERRURES</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/perceuse.png"></span> <div class="box-area">
+				<h3>CUISINES</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/pince.png"></span> <div class="box-area">
+				<h3>ÉLÉCTRICITÉ</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/pinceau.png"></span> <div class="box-area">
+				<h3>PEINTURE</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/ladder.png"></span> <div class="box-area">
+				<h3>FENÊTRES</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				<div class="col-md-3 text-center">
+				<div class="box"> 
+				<span class="icons c1"><img src="img/services/scie.png"></span> <div class="box-area">
+				<h3>CHARPENTE</h3> <p><a href="#">+ de détails</a></p></div>
+				</div></div>
+				</div></div></div>
+				</div> 
+			 
+		
+			</div>
+			</section> 
+
+			<section class="aboutUs">
+				<div class="container">
+					<div class="row">
+					<div class="col-md-6"><img src="img/img1.png" class="img-center" alt="" /></div>
+						<div class="col-md-6">
+							<div><h2 class=titre-rejoigner>Rejoignez notre équipe</h2>
+							<p class="discrip-rejoigner">Idéal pour les ouvriers qui recherchent un job à la carte. Chaque année RENOPART propose plus de 6000 missions dans toute la France. Une fois inscrit et votre dossier constitué , vous n'avez plus qu'à remplir vos disponibilités.<br>
+							Une facon idéale de gagner un peu d'argent.<br>
+							L'inscription est gratuite et sans engagement.<br>
+							N'attendez pas et inscrivez-vous dès maintenant !</p>
+							<a class="btn-rejoigner" href="#">Rejoignez nous</a>
+							</div>
+							<br/>
+						</div>
+					</div> 
+				
+				</div>
+				</section> 
+
+			</section> 
+			<section class="jumbobox">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div><h1>Comment ça marche ?</h1></div>
+						
+					</div>
+				</div>
+			</div>
+			</section>
+			<section id="content">
+			<div class="container">
+			<div class="progressbar-wrapper">
+			  <ul class="progressbar">
+				  <li id="step1"><br>Etape 1<br><br><span>Je dépose ma demande de devis</span></li>
+				  <li id="step2"><br>Etape 2<br><br><span>Je signe le devis</span></li>
+				  <li id="step3"><br>Etape 3<br><br><span>On s'occupe de tout</span></li>
+				  <li id="step4"><br>Etape 4<br><br><span>Satisfaction Garantie</span></li>
+			  </ul>
+		</div>
+		</div>
+			 
+		
+			</div>
+			</section>
+
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">Contactez Nous</h5>
+								<address>
+								<strong>RENOPART company Inc</strong><br>
+								23 Boulevard de France,<br>
+								91037 Évry FRANCE.</address>
+								<p>
+									<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
+									<i class="icon-envelope-alt"></i> renopart-agora@domainname.com
+								</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">Raccourcis</h5>
+								<ul class="link-list">
+									<li><a href="#">Rejoignez notre équipe</a></li>
+									<li><a href="#">Demandez un devis</a></li>
+									<li><a href="#">Notre politique</a></li>
+									<li><a href="#">Career</a></li>
+									<li><a href="#">Contactez nous</a></li>
+								</ul>
+							</div>
+						</div>
+			
+	
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">Recent News</h5>
+								<ul class="link-list">
+									<li><a href="#">Actualités Travaux de Menuiserie</a></li>
+									<li><a href="#">Actualités Isolation Thermique, Phonique</a></li>
+									<li><a href="#">Actualités Chauffage, Energies</a></li>
+									<li><a href="#">Actualités Travaux Extérieurs</a></li>
+									<li><a href="#">Actualités Entreprises</a></li>
+									<li><a href="#">Actualités Rénovation Intérieure</a></li>					
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="widget">
+								<a href="index.html"><img class="logo-footer" src="img/logo-footer.png" alt="logo"/></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="sub-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="copyright">
+									<p>
+										<span>&copy; AGORA Services 2019 All right reserved. <a href="http://webthemez.com/tag/free" target="_blank"></a>By RENOPART societé</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<ul class="social-network">
+									<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+									<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+									<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				</footer>
+ 
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+        
+		<script src="../js/jquery.js"></script>
+		<script src="../js/jquery.easing.1.3.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.fancybox.pack.js"></script>
+		<script src="../js/jquery.fancybox-media.js"></script> 
+		<script src="../js/portfolio/jquery.quicksand.js"></script>
+		<script src="../js/portfolio/setting.js"></script>
+		<script src="../js/jquery.flexslider.js"></script>
+		<script src="../js/animate.js"></script>
+		<script src="../js/custom.js"></script>
+		<script src="../js/owl-carousel/owl.carousel.js"></script>
+		
+
+
+</body>
+</html>
