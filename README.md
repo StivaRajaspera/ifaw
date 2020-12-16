@@ -8,3 +8,9 @@ et créer une base de donnée "agora" en isérant le code sql suivant :
     INSERT INTO user_role (user_id, role_id) VALUES (1,1);
 
 Bonne navigation !
+
+- Anastasiya Velychko
+- Stiva Rajaspera
+- Asma Henoune
+- Duc-Chin Pham
+- Taoufiq Kounaidi
